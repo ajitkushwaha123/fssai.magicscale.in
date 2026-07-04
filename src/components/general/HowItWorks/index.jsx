@@ -1,10 +1,9 @@
 "use client";
-
 import React from "react";
-import SectionWrapper from "../SectionWrapper";
 import Title from "../Title";
-import { Highlighter } from "@/components/ui/highlighter";
 import { motion } from "framer-motion";
+import SectionWrapper from "../SectionWrapper";
+import { Highlighter } from "@/components/ui/highlighter";
 import { FileUp, PhoneCall, KeyRound, MailCheck } from "lucide-react";
 
 export default function HowItWorks() {

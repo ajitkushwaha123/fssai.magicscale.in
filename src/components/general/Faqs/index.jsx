@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import SectionWrapper from "../SectionWrapper";
 import Title from "../Title";
-import { Highlighter } from "@/components/ui/highlighter";
+import { useState } from "react";
 import { FAQS } from "./helper/constants";
 import { ChevronDown } from "lucide-react";
+import SectionWrapper from "../SectionWrapper";
+import { AnimatePresence, motion } from "framer-motion";
+import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Faqs() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -53,11 +53,10 @@ export default function Faqs() {
             >
               <button
                 onClick={() => toggle(i)}
-                className={`w-full flex items-center justify-between px-5 py-4 text-left font-medium text-md md:text-lg transition-all duration-300 ${
-                  isOpen
-                    ? "bg-green-100 dark:bg-[#1a183b]/60"
-                    : "hover:bg-green-50 dark:hover:bg-[#16142f]/40"
-                }`}
+                className={`w-full flex items-center justify-between px-5 py-4 text-left font-medium text-md md:text-lg transition-all duration-300 ${isOpen
+                  ? "bg-green-100 dark:bg-[#1a183b]/60"
+                  : "hover:bg-green-50 dark:hover:bg-[#16142f]/40"
+                  }`}
               >
                 <div className="flex items-center gap-3">
                   <Icon className="w-5 h-5 text-green-500 dark:text-green-400 shrink-0" />

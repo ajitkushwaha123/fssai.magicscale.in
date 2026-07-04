@@ -1,8 +1,5 @@
 "use client";
-
-import { ArrowRight, ShieldCheck } from "lucide-react";
-import { useState } from "react";
-import ReserveSeatDialog from "../CustomerInfoForm";
+import { ShieldCheck } from "lucide-react";
 import PayButton from "../Payment/PayButton";
 import { useAppConfigStore } from "@/stores/app-config.store";
 

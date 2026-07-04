@@ -15,34 +15,57 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title:
-    "MagicScale | Learn How to Launch a Profitable Food Business on Swiggy & Zomato for ₹9",
+  metadataBase: new URL("https://fssai.magicscale.in"),
+
+  title: {
+    default: "FSSAI License Online | MagicScale",
+    template: "%s | MagicScale",
+  },
+
   description:
-    "Get your FSSAI Food License easily. We help you start, launch, and scale a profitable food business with fast, secure, and hassle-free FSSAI registration.",
+    "Apply for FSSAI License online starting at ₹999. Get Basic, State and Central Food License with expert support.",
+
   keywords: [
-    "fssai license",
-    "fssai registration",
-    "swiggy business",
-    "zomato business",
-    "restaurant business",
-    "food startup",
-    "online food business",
-    "cloud kitchen training",
-    "MagicScale",
-    "food entrepreneur",
+    "FSSAI License",
+    "Food License",
+    "FSSAI Registration",
+    "Food Registration",
+    "Apply FSSAI License",
+    "FSSAI Online",
+    "Basic FSSAI License",
+    "State FSSAI License",
+    "Central FSSAI License",
   ],
+
+  alternates: {
+    canonical: "https://fssai.magicscale.in",
+  },
+  
+  icons: {
+    icon: "/og-image.webp",
+  },
+  
   openGraph: {
-    title:
-      "MagicScale | Learn How to Launch a Profitable Food Business on Swiggy & Zomato for ₹9",
-    description:
-      "Get your fast and secure FSSAI Registration done today. Hassle-free food licensing.",
-    type: "website",
+    title: "FSSAI License Online | MagicScale",
+    description: "Apply for FSSAI License online starting at ₹999. Get Basic, State and Central Food License with expert support.",
+    url: "https://fssai.magicscale.in",
     siteName: "MagicScale",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "MagicScale FSSAI License",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Launch a Profitable Food Business on Swiggy & Zomato",
-    description: "FSSAI Registration Services by MagicScale.",
+    title: "FSSAI License Online | MagicScale",
+    description: "Apply for FSSAI License online starting at ₹999.",
+    images: ["/og-image.webp"],
   },
 };
 

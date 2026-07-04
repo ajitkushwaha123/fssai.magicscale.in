@@ -3,8 +3,8 @@ import clsx from "clsx";
 import Title from "../Title";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { GridPattern } from "@/components/ui/grid-pattern";
 import { Highlighter } from "@/components/ui/highlighter";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 const requiredDocuments = [
   {

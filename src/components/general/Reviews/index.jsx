@@ -1,11 +1,10 @@
 "use client";
-
-import { motion } from "framer-motion";
-import { Star } from "lucide-react";
-import Image from "next/image";
-import { TESTIMONIALS } from "./helper/constants";
-import SectionWrapper from "../SectionWrapper";
 import Title from "../Title";
+import Image from "next/image";
+import { Star } from "lucide-react";
+import { motion } from "framer-motion";
+import SectionWrapper from "../SectionWrapper";
+import { TESTIMONIALS } from "./helper/constants";
 import { Highlighter } from "@/components/ui/highlighter";
 
 const cardVariants = {

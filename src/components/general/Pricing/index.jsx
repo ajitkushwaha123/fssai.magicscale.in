@@ -1,12 +1,11 @@
 "use client";
-
 import React from "react";
-import { Check, Shield, Zap } from "lucide-react";
-import PayButton from "../Payment/PayButton";
-import { useAppConfigStore } from "@/stores/app-config.store";
-import SectionWrapper from "../SectionWrapper";
 import Title from "../Title";
+import PayButton from "../Payment/PayButton";
+import SectionWrapper from "../SectionWrapper";
+import { Check, Shield, Zap } from "lucide-react";
 import { Highlighter } from "@/components/ui/highlighter";
+import { useAppConfigStore } from "@/stores/app-config.store";
 
 export default function Pricing() {
   const plan = useAppConfigStore((state) => state.plan);

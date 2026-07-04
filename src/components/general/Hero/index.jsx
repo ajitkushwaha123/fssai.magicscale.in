@@ -1,10 +1,7 @@
 import { cn } from "@/lib/utils";
-import { WordRotate } from "@/components/ui/word-rotate";
 import { Highlighter } from "@/components/ui/highlighter";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
-import ReserveSeatDialog from "../CustomerInfoForm";
-import PayButton from "../Payment/PayButton";
 
 export const Hero = () => {
   return (

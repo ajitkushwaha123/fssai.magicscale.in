@@ -1,6 +1,10 @@
-"use client";
 import React from "react";
 import Home from "@/components/global/Home";
+
+export const metadata = {
+  title: "Apply for FSSAI License Online | Fast & Secure Registration",
+  description: "Get your Basic, State, or Central FSSAI License online starting at ₹999. Expert support, hassle-free processing, and secure platform.",
+};
 
 export default function Page() {
   return (

@@ -1,17 +1,14 @@
-"use client";
 import React from "react";
-import dynamic from "next/dynamic";
-
 import { Hero } from "@/components/general/Hero";
 import StickyMobileCTA from "@/components/general/StickyMobileCTA";
-const Faqs = dynamic(() => import("../../general/Faqs"), { ssr: false });
-const Testimonials = dynamic(() => import("../../general/Reviews"), { ssr: false });
-const MasonryGallery = dynamic(() => import("../../general/galllery"), { ssr: false });
-const PainSection = dynamic(() => import("@/components/general/PainSection"), { ssr: false });
-const Pricing = dynamic(() => import("../../general/Pricing"), { ssr: false });
-const LicenseTypes = dynamic(() => import("../../general/LicenseTypes"), { ssr: false });
-const HowItWorks = dynamic(() => import("../../general/HowItWorks"), { ssr: false });
-const WhyChooseUs = dynamic(() => import("../../general/WhyChooseUs"), { ssr: false });
+import WhyChooseUs from "@/components/general/WhyChooseUs";
+import PainSection from "@/components/general/PainSection";
+import LicenseTypes from "@/components/general/LicenseTypes";
+import HowItWorks from "@/components/general/HowItWorks";
+import Pricing from "@/components/general/Pricing";
+import MasonryGallery from "@/components/general/galllery";
+import Testimonials from "@/components/general/Reviews";
+import Faqs from "@/components/general/Faqs";
 
 export default function Home() {
   return (
@@ -21,13 +18,6 @@ export default function Home() {
       <PainSection />
       <LicenseTypes />
       <HowItWorks />
-      {/* <AgendaTimelineSection /> */}
-      {/* <BonusSection
-        title="Free Zomato & Swiggy Onboarding"
-        value="₹5,000+ Value"
-        limit={10}
-        description="We'll personally help you complete restaurant onboarding on Zomato & Swiggy so you can start receiving orders faster."
-      /> */}
       <StickyMobileCTA />
       <Pricing />
       <MasonryGallery />
