@@ -290,16 +290,6 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
     >
       <DialogContent className="z-[100] border-0 p-0 w-full h-[99dvh] sm:h-auto sm:max-h-[90vh] sm:w-[95vw] sm:max-w-[550px] bg-white sm:rounded-2xl flex flex-col gap-0 shadow-2xl">
         <div className="px-5 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-5 bg-white shrink-0 z-10 border-b border-zinc-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#22c55e] bg-[#22c55e]/10 w-fit px-3 py-1.5 rounded-full border border-[#22c55e]/20">
-              <ShieldCheck className="h-3.5 w-3.5" />
-              Secure FSSAI Application
-            </div>
-            <div className="text-xs font-semibold text-zinc-400 bg-zinc-50 px-2.5 py-1 rounded-md">
-              Step {step} of 4
-            </div>
-          </div>
-
           <DialogHeader>
             <DialogTitle className="text-left text-2xl font-bold text-zinc-900 tracking-tight">
               {step === 1 && "What's your business type?"}
@@ -336,7 +326,6 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
                           key={type.id}
                           onClick={() => {
                             formik.setFieldValue("businessActivity", type.id);
-                            // Auto-advance to next step for smooth UX
                             setTimeout(() => setStep(2), 200);
                           }}
                           className={`group cursor-pointer rounded-[14px] border-2 p-2 flex flex-col gap-2 transition-all duration-300 ${isSelected

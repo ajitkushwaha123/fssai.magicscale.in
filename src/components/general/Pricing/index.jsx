@@ -37,9 +37,9 @@ export default function Pricing() {
         />
       </div>
     }>
-      <div className="mx-auto px-6 relative z-10">
+      <div className="mx-auto relative z-10">
         <div className="mx-auto">
-          <div className="relative bg-white rounded-3xl border border-emerald-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_40px_rgb(16,185,129,0.12)]">
+          <div className="relative bg-white rounded-xl border border-emerald-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_40px_rgb(16,185,129,0.12)]">
             <div className="bg-[#22c55e]  py-3 text-center">
               <p className="text-sm font-bold text-white uppercase tracking-widest flex items-center justify-center gap-2">
                 <Zap className="w-4 h-4 fill-white" /> Most Popular Choice
