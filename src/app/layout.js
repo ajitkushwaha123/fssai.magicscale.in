@@ -40,11 +40,11 @@ export const metadata = {
   alternates: {
     canonical: "https://fssai.magicscale.in",
   },
-  
+
   icons: {
-    icon: "/og-image.webp",
+    icon: "/og-image.png",
   },
-  
+
   openGraph: {
     title: "FSSAI License Online | MagicScale",
     description: "Apply for FSSAI License online starting at ₹999. Get Basic, State and Central Food License with expert support.",
@@ -52,7 +52,7 @@ export const metadata = {
     siteName: "MagicScale",
     images: [
       {
-        url: "/og-image.webp",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "MagicScale FSSAI License",
@@ -65,7 +65,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "FSSAI License Online | MagicScale",
     description: "Apply for FSSAI License online starting at ₹999.",
-    images: ["/og-image.webp"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -75,9 +75,9 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} font-poppins antialiased`}>
         {/* <PostHogProvider> */}
 
-          <Providers>
-            <AppShell>{children}</AppShell>
-          </Providers>
+        <Providers>
+          <AppShell>{children}</AppShell>
+        </Providers>
         {/* </PostHogProvider> */}
 
         {/* <Analytics />
