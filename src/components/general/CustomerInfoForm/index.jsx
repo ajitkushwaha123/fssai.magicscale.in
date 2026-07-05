@@ -42,8 +42,6 @@ const FieldError = ({ touched, error }) => {
 export default function ReserveSeatDialog({ open, onOpenChange }) {
   const plan = useAppConfigStore((state) => state.plan);
   const { registration } = useRegistration();
-  const isLoading = registration.isPending;
-
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -87,6 +85,8 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
       }
     },
   });
+
+  const isLoading = registration.isPending || formik.isSubmitting;
 
   useEffect(() => {
     if (!open) {
