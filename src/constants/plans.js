@@ -5,8 +5,8 @@ export const PLANS = {
     slug: "fssai-food-license",
     description: "Get your FSSAI Food License quickly with complete documentation, application filing, and support.",
     currency: "INR",
-    price: 999, // Base price for payment fallback if needed
-    badge: "Starting at ₹999",
+    price: 699, // Base price for payment fallback if needed
+    badge: "Starting at ₹699",
     ctaText: "Apply Now",
     features: [
       "Expert Documentation Support",
@@ -24,7 +24,7 @@ export const PLANS = {
         pricing: [
           {
             duration: "1 Year",
-            price: 999,
+            price: 699,
             originalPrice: 1499,
             popular: true
           },
@@ -40,7 +40,7 @@ export const PLANS = {
           },
           {
             duration: "5 Years",
-            price: 3999,
+            price: 3699,
             originalPrice: 5500
           }
         ]
@@ -51,8 +51,8 @@ export const PLANS = {
         pricing: [
           {
             duration: "1 Year",
-            price: 1999,
-            originalPrice: 2999
+            price: 1699,
+            originalPrice: 2699
           },
           {
             duration: "2 Years",
@@ -66,7 +66,7 @@ export const PLANS = {
           },
           {
             duration: "5 Years",
-            price: 6999,
+            price: 6699,
             originalPrice: 9000
           }
         ]
@@ -77,23 +77,23 @@ export const PLANS = {
         pricing: [
           {
             duration: "1 Year",
-            price: 3999,
-            originalPrice: 5999
+            price: 3699,
+            originalPrice: 5699
           },
           {
             duration: "2 Years",
-            price: 6999,
-            originalPrice: 8999
+            price: 6699,
+            originalPrice: 8699
           },
           {
             duration: "3 Years",
-            price: 8999,
-            originalPrice: 10999
+            price: 8699,
+            originalPrice: 10699
           },
           {
             duration: "5 Years",
-            price: 12999,
-            originalPrice: 15999
+            price: 12699,
+            originalPrice: 15699
           }
         ]
       }
