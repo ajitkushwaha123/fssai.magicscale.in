@@ -5,7 +5,7 @@ export const PLANS = {
     slug: "fssai-food-license",
     description: "Get your FSSAI Food License quickly with complete documentation, application filing, and support.",
     currency: "INR",
-    price: 699, // Base price for payment fallback if needed
+    price: 1, // Base price for payment fallback if needed
     badge: "Starting at ₹699",
     ctaText: "Apply Now",
     features: [
@@ -24,7 +24,7 @@ export const PLANS = {
         pricing: [
           {
             duration: "1 Year",
-            price: 699,
+            price: 1,
             originalPrice: 1499,
             popular: true
           },

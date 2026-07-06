@@ -3,6 +3,7 @@ import { Registration } from "@/models/Registration";
 import dbConnect from "@/lib/db-connect";
 import { NextResponse } from "next/server";
 import { getPostHogClient } from "@/lib/posthog-server";
+import { initiatePaytmTransaction } from "@/lib/paytm";
 
 export async function POST(req) {
   let registration = null;
@@ -88,6 +89,12 @@ export async function POST(req) {
       },
     });
 
+    const paytmResponse = await initiatePaytmTransaction(
+      orderId,
+      plan.price,
+      `CUST_${registration._id}`
+    );
+
     return NextResponse.json(
       {
         success: true,
@@ -95,6 +102,8 @@ export async function POST(req) {
         data: {
           registrationId: registration._id,
           orderId: orderId,
+          txnToken: paytmResponse.txnToken,
+          mid: paytmResponse.mid,
         },
       },
       { status: 201 },

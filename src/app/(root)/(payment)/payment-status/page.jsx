@@ -21,7 +21,7 @@ function PaymentStatusContent() {
       setError(null);
       try {
         const response = await fetch(
-          `/api/payments/registration/${orderId}/status`,
+          `/api/payments/registration/${orderId}`,
         );
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));
@@ -32,7 +32,7 @@ function PaymentStatusContent() {
         if (isMounted) {
           setData(responseData);
           
-          const status = responseData?.data?.payment_status;
+          const status = responseData?.registration?.paymentStatus;
           if (status === "SUCCESS") {
             router.replace(`payment-status/success?order_id=${orderId}`);
           } else if (status === "FAILED" || status === "ABANDONED") {
@@ -97,7 +97,7 @@ function PaymentStatusContent() {
       <p className="text-gray-600 mt-2">
         Current Status:{" "}
         <span className="font-semibold text-amber-600">
-          {data?.data?.payment_status}
+          {data?.registration?.paymentStatus}
         </span>
       </p>
       <p className="text-sm text-gray-400 mt-1">
