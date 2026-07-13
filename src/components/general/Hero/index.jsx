@@ -54,6 +54,18 @@ export const Hero = () => {
         <span className="text-orange-500 font-semibold">Swiggy</span>{" "}.
       </p>
 
+      <div className="relative z-10 mt-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 bg-emerald-50 dark:bg-emerald-900/20 px-6 py-3 rounded-2xl border border-emerald-100 dark:border-emerald-800/30">
+          <span className="text-emerald-700 dark:text-emerald-400 font-semibold text-lg flex items-center gap-2">
+            <span className="text-2xl font-black">₹100</span> Advance
+          </span>
+          <span className="hidden sm:block text-emerald-300">|</span>
+          <span className="text-emerald-600 dark:text-emerald-500 font-medium text-sm sm:text-base">
+            Pay the rest after License Approval
+          </span>
+        </div>
+      </div>
+
       <div
         className="relative z-10 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both"
       >

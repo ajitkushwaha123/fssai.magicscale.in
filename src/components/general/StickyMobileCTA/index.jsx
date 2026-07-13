@@ -16,12 +16,15 @@ export default function StickyMobileCTA() {
             <div className="flex items-center justify-between gap-2">
               <div className="flex flex-col shrink-0">
                 <span className="text-2xl min-[375px]:text-3xl font-black tracking-tight text-green-600">
-                  ₹{plan?.price || 999}
+                  ₹{plan?.advancePrice || 100}
                 </span>
 
-                <div className="mt-0.5 flex items-center gap-1 text-[10px] min-[375px]:text-xs text-zinc-500 font-medium">
-                  <ShieldCheck className="h-3 w-3 shrink-0 text-green-500" />
-                  <span className="whitespace-nowrap">Fast & Secure</span>
+                <div className="mt-0.5 flex flex-col items-start gap-1">
+                  <span className="text-xs font-bold text-zinc-700">Advance</span>
+                  <div className="flex items-center gap-1 text-[10px] min-[375px]:text-xs text-zinc-500 font-medium">
+                    <ShieldCheck className="h-3 w-3 shrink-0 text-green-500" />
+                    <span className="whitespace-nowrap">Rest After Approval</span>
+                  </div>
                 </div>
               </div>
 

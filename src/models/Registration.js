@@ -38,6 +38,8 @@ const registrationSchema = new mongoose.Schema(
     orderId: String,
     tickedId: String,
     amount: Number,
+    totalAmount: Number,
+    advanceAmount: Number,
   },
   {
     timestamps: true,

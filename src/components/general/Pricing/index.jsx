@@ -51,10 +51,16 @@ export default function Pricing() {
                 <h3 className="text-2xl font-extrabold text-zinc-900 mb-2">{plan?.title || "FSSAI Registration"}</h3>
                 <p className="text-zinc-500 mb-6 font-medium">One-time payment for a 1-Year License</p>
 
-                <div className="flex items-end gap-3 mb-8">
-                  <span className="text-6xl font-black text-zinc-900 tracking-tight">₹{plan?.price || 999}</span>
-                  <div className="flex flex-col pb-1.5">
-                    <span className="text-sm font-bold text-red-500 uppercase tracking-wider mb-0.5">Save ₹2000</span>
+                <div className="flex flex-col gap-1 mb-8">
+                  <div className="flex items-end gap-3">
+                    <span className="text-6xl font-black text-emerald-600 tracking-tight">₹{plan?.advancePrice || 100}</span>
+                    <span className="text-xl font-bold text-zinc-900 pb-2">Advance</span>
+                  </div>
+                  <p className="text-sm font-semibold text-zinc-500">
+                    Pay the remaining ₹{(plan?.price || 699) - (plan?.advancePrice || 100)} <span className="text-emerald-600">after License Approval</span>
+                  </p>
+                  <div className="flex flex-col mt-2">
+                    <span className="text-sm font-bold text-red-500 uppercase tracking-wider mb-0.5">Total Price: ₹{plan?.price || 699} (Save ₹2000)</span>
                     <span className="text-lg text-zinc-400 font-medium line-through decoration-zinc-300">₹2,999</span>
                   </div>
                 </div>

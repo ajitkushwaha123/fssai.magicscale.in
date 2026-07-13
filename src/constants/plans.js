@@ -6,7 +6,9 @@ export const PLANS = {
     description: "Get your FSSAI Food License quickly with complete documentation, application filing, and support.",
     currency: "INR",
     price: 699, // Base price for payment fallback if needed
-    badge: "Starting at ₹699",
+    advancePrice: 100,
+    advanceText: "Pay ₹100 Advance, rest after License Issue",
+    badge: "Pay ₹100 Advance",
     ctaText: "Apply Now",
     features: [
       "Expert Documentation Support",

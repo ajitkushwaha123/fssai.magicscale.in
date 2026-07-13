@@ -257,9 +257,10 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
               setIsRedirecting(true);
 
               // Fire Checkout events
-              posthog.capture("checkout_initiated", { plan_id: plan._id, amount: plan.price });
+              const advanceAmount = plan.advancePrice || 100;
+              posthog.capture("checkout_initiated", { plan_id: plan._id, amount: advanceAmount, total_amount: plan.price });
               if (typeof window !== "undefined" && window.fbq) {
-                window.fbq("track", "InitiateCheckout", { value: parseFloat(plan.price), currency: "INR" });
+                window.fbq("track", "InitiateCheckout", { value: parseFloat(advanceAmount), currency: "INR" });
               }
 
               await registration.mutateAsync({

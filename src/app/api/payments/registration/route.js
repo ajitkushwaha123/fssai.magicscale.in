@@ -95,7 +95,9 @@ export async function POST(req) {
       aadharUrl: processedAadharUrl || "",
       panUrl: processedPanUrl || "",
       planId: plan._id,
-      amount: plan.price,
+      amount: plan.advancePrice || 100,
+      totalAmount: plan.price,
+      advanceAmount: plan.advancePrice || 100,
       paymentStatus: "PENDING",
     });
 
@@ -110,7 +112,8 @@ export async function POST(req) {
       event: "registration_created",
       properties: {
         plan_id: plan._id,
-        amount: plan.price,
+        amount: plan.advancePrice || 100,
+        total_amount: plan.price,
         order_id: orderId,
         registration_id: registration._id.toString(),
       },
@@ -118,7 +121,7 @@ export async function POST(req) {
 
     const paytmResponse = await initiatePaytmTransaction(
       orderId,
-      plan.price,
+      plan.advancePrice || 100,
       `CUST_${registration._id}`
     );
 
