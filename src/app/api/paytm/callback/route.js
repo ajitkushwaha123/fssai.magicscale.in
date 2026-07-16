@@ -3,6 +3,7 @@ import { verifyPaytmSignature } from "@/lib/paytm";
 import dbConnect from "@/lib/db-connect";
 import { Registration } from "@/models/Registration";
 import { getPostHogClient } from "@/lib/posthog-server";
+import { sendPaymentSuccessEmails } from "@/lib/email";
 
 export async function POST(req) {
   try {
@@ -48,8 +49,10 @@ export async function POST(req) {
 
     const posthog = getPostHogClient();
 
-    if (status === "TXN_SUCCESS") {
       await Registration.updateOne({ orderId }, { $set: { paymentStatus: "SUCCESS" } });
+
+      // Trigger emails in background
+      sendPaymentSuccessEmails(null, registration, { amount: registration.amount }).catch(console.error);
 
       posthog.capture({
         distinctId: registration.phone,

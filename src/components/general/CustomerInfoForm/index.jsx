@@ -104,12 +104,45 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
     return null;
   };
 
-  const savedData = getSavedData();
-
-  const [currentStep, setCurrentStep] = useState(savedData?.step || 0);
+  const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isCapturingLead, setIsCapturingLead] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
+  const [initialValues, setInitialValues] = useState({
+    businessType: "",
+    name: "",
+    phone: "",
+    email: "",
+    pincode: "",
+    state: "",
+    city: "",
+    addressLine: "",
+    profilePicUrl: "",
+    aadharUrl: "",
+    panUrl: "",
+  });
+
+  useEffect(() => {
+    if (open) {
+      const savedData = getSavedData();
+      if (savedData) {
+        setCurrentStep(savedData.step || 0);
+        setInitialValues({
+          businessType: savedData.values?.businessType || "",
+          name: savedData.values?.name || "",
+          phone: savedData.values?.phone || "",
+          email: savedData.values?.email || "",
+          pincode: savedData.values?.pincode || "",
+          state: savedData.values?.state || "",
+          city: savedData.values?.city || "",
+          addressLine: savedData.values?.addressLine || "",
+          profilePicUrl: savedData.values?.profilePicUrl || "",
+          aadharUrl: savedData.values?.aadharUrl || "",
+          panUrl: savedData.values?.panUrl || "",
+        });
+      }
+    }
+  }, [open]);
 
   // Removed resetting currentStep to 0 when modal closes to allow resuming progress
 
@@ -240,19 +273,8 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
         </div>
 
         <Formik
-          initialValues={{
-            businessType: savedData?.values?.businessType || "",
-            name: savedData?.values?.name || "",
-            phone: savedData?.values?.phone || "",
-            email: savedData?.values?.email || "",
-            pincode: savedData?.values?.pincode || "",
-            state: savedData?.values?.state || "",
-            city: savedData?.values?.city || "",
-            addressLine: savedData?.values?.addressLine || "",
-            profilePicUrl: savedData?.values?.profilePicUrl || "",
-            aadharUrl: savedData?.values?.aadharUrl || "",
-            panUrl: savedData?.values?.panUrl || "",
-          }}
+          enableReinitialize={true}
+          initialValues={initialValues}
           validationSchema={validationSchemas[currentStep]}
           onSubmit={async (values) => {
             if (currentStep !== 3) return;

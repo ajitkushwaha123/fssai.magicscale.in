@@ -21,6 +21,15 @@ const leadSchema = new mongoose.Schema(
     planId: {
       type: String,
     },
+    remarks: {
+      type: String,
+      required: false,
+    },
+    status: {
+      type: String,
+      enum: ["NEW", "CALLBACK", "CALL_DONE", "CONVERTED", "NOT_INTERESTED"],
+      default: "NEW"
+    }
   },
   {
     timestamps: true,

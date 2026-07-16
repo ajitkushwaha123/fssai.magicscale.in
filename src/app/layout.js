@@ -1,12 +1,8 @@
 import "./globals.css";
 import Providers from "@/providers";
 import { Poppins } from "next/font/google";
-// import { Analytics } from "@vercel/analytics/next";
 import AppShell from "@/components/global/AppShell";
-// import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThirdPartyScripts from "@/components/ThirdPartyScripts";
-
-// import { PostHogProvider } from "@/components/PostHogProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -103,36 +99,11 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WDS53PBB');`,
-          }}
-        />
       </head>
       <body className={`${poppins.variable} font-poppins antialiased`}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WDS53PBB"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-        {/* <PostHogProvider> */}
-
         <Providers>
           <AppShell>{children}</AppShell>
         </Providers>
-        {/* </PostHogProvider> */}
-
-        {/* <Analytics />
-        <SpeedInsights /> */}
         <ThirdPartyScripts />
       </body>
     </html>

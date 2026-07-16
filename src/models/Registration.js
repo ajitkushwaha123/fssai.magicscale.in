@@ -40,6 +40,12 @@ const registrationSchema = new mongoose.Schema(
     amount: Number,
     totalAmount: Number,
     advanceAmount: Number,
+    remarks: String,
+    status: {
+      type: String,
+      enum: ["NEW", "CALLBACK", "CALL_DONE", "CONVERTED", "NOT_INTERESTED"],
+      default: "NEW"
+    }
   },
   {
     timestamps: true,
