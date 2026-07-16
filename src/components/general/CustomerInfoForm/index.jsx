@@ -144,7 +144,12 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
 
         posthog.capture("lead_captured", { plan_id: plan?._id });
         if (typeof window !== "undefined" && window.fbq) {
-          window.fbq("track", "Lead", { content_name: "FSSAI Application" });
+          window.fbq("track", "Lead", { 
+            content_name: "FSSAI Application Lead",
+            content_category: values.businessType,
+            currency: "INR",
+            value: parseFloat(plan?.price || 0)
+          });
         }
       } catch (error) {
         console.error("Failed to save lead", error);
@@ -260,7 +265,14 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
               const advanceAmount = plan.advancePrice || 100;
               posthog.capture("checkout_initiated", { plan_id: plan._id, amount: advanceAmount, total_amount: plan.price });
               if (typeof window !== "undefined" && window.fbq) {
-                window.fbq("track", "InitiateCheckout", { value: parseFloat(advanceAmount), currency: "INR" });
+                window.fbq("track", "InitiateCheckout", { 
+                  value: parseFloat(advanceAmount), 
+                  currency: "INR",
+                  content_name: "FSSAI License Registration Advance",
+                  content_type: "product",
+                  content_ids: [plan._id || "fssai_plan"],
+                  num_items: 1
+                });
               }
 
               await registration.mutateAsync({

@@ -66,7 +66,11 @@ function SuccessPageContent() {
         const purchaseValue = parseFloat(reg.amount || registrationDetails?.plan?.price || 0);
         window.fbq("track", "Purchase", {
           value: purchaseValue,
-          currency: "INR"
+          currency: "INR",
+          content_name: "FSSAI License Registration",
+          content_type: "product",
+          content_ids: [reg.planId || registrationDetails?.plan?._id || "fssai_plan"],
+          order_id: reg.orderId
         });
       }
     }

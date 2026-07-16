@@ -8,6 +8,37 @@ const CONFIG = {
   metaPixelIds: ["1223249586587487"], // Add or remove Meta Pixel IDs here
 };
 
+// Initialize the window objects and stubs synchronously if in browser
+if (typeof window !== "undefined") {
+  // GA stub
+  window.dataLayer = window.dataLayer || [];
+  if (!window.gtag) {
+    window.gtag = function(){window.dataLayer.push(arguments);}
+    window.gtag('js', new Date());
+    CONFIG.googleAnalyticsIds.forEach(id => {
+      window.gtag('config', id);
+    });
+  }
+
+  // Meta Pixel stub
+  if (CONFIG.metaPixelIds.length > 0 && !window.fbq) {
+    const f = window;
+    const n = f.fbq = function() {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    
+    CONFIG.metaPixelIds.forEach(id => {
+      window.fbq('init', id);
+    });
+    window.fbq('track', 'PageView');
+  }
+}
+
 export default function ThirdPartyScripts() {
   useEffect(() => {
     let scriptsLoaded = false;
@@ -28,46 +59,15 @@ export default function ThirdPartyScripts() {
         gaScript.async = true;
         gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${CONFIG.googleAnalyticsIds[0]}`;
         document.head.appendChild(gaScript);
-
-        // Initialize dataLayer and configure all IDs
-        const gaInline = document.createElement("script");
-        let configString = "";
-        CONFIG.googleAnalyticsIds.forEach(id => {
-          configString += `gtag('config', '${id}');\n`;
-        });
-
-        gaInline.innerHTML = `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          ${configString}
-        `;
-        document.head.appendChild(gaInline);
       }
 
       // 2. Initialize Meta Pixels dynamically
       if (CONFIG.metaPixelIds.length > 0) {
-        (function(f,b,e,v,n,t,s) {
-          if(f.fbq) return;
-          n=f.fbq=function(){
-            n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments);
-          };
-          if(!f._fbq) f._fbq=n;
-          n.push=n;
-          n.loaded=!0;
-          n.version='2.0';
-          n.queue=[];
-          t=b.createElement(e);
-          t.async=!0;
-          t.src=v;
-          s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s);
-        })(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
-
-        CONFIG.metaPixelIds.forEach(id => {
-          window.fbq('init', id);
-        });
-        window.fbq('track', 'PageView');
+        const t = document.createElement('script');
+        t.async = !0;
+        t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        const s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
       }
     };
 

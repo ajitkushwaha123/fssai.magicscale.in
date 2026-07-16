@@ -14,7 +14,7 @@ export default function PayButton() {
         onClick={() => {
           posthog.capture("application_form_opened");
           if (typeof window !== "undefined" && window.fbq) {
-            window.fbq("track", "InitiateCheckout");
+            window.fbq("track", "InitiateCheckout", { content_name: "FSSAI Application Form Opened" });
           }
           setOpen(true);
         }}
