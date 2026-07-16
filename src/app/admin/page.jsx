@@ -6,9 +6,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import toast from "react-hot-toast";
 
 export default function AdminDashboard() {
-  const [data, setData] = useState({ leads: [], registrations: [] });
+  const [data, setData] = useState({ items: [], totalRecords: 0, totalPages: 1, currentPage: 1 });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("ALL");
   const [savingRemark, setSavingRemark] = useState(null);
   const [savingStatus, setSavingStatus] = useState(null);
   
@@ -18,16 +19,24 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [currentPage]);
 
-  // Reset page when search changes
+  // Debounced Search & Filters
   useEffect(() => {
-    setCurrentPage(1);
-  }, [searchTerm]);
+    const handler = setTimeout(() => {
+      if (currentPage !== 1) {
+        setCurrentPage(1); // this will trigger the fetch above
+      } else {
+        fetchData();
+      }
+    }, 400);
+    return () => clearTimeout(handler);
+  }, [searchTerm, statusFilter]);
 
   const fetchData = async () => {
     try {
-      const res = await fetch("/api/admin/data");
+      setLoading(true);
+      const res = await fetch(`/api/admin/data?page=${currentPage}&limit=${itemsPerPage}&search=${encodeURIComponent(searchTerm)}&status=${encodeURIComponent(statusFilter)}`);
       if (res.ok) {
         const result = await res.json();
         setData(result.data);
@@ -54,9 +63,12 @@ export default function AdminDashboard() {
         toast.success("Remark saved!");
         setData((prev) => {
           const newData = { ...prev };
-          const list = type === "registration" ? newData.registrations : newData.leads;
-          const index = list.findIndex((item) => item._id === id);
-          if (index !== -1) list[index].remarks = newRemark;
+          const items = [...newData.items];
+          const index = items.findIndex(
+            (item) => (item.registrationId || item.leadId) === id
+          );
+          if (index !== -1) items[index].remarks = newRemark;
+          newData.items = items;
           return newData;
         });
       } else {
@@ -82,9 +94,12 @@ export default function AdminDashboard() {
         toast.success("Status updated!");
         setData((prev) => {
           const newData = { ...prev };
-          const list = type === "registration" ? newData.registrations : newData.leads;
-          const index = list.findIndex((item) => item._id === id);
-          if (index !== -1) list[index].status = newStatus;
+          const items = [...newData.items];
+          const index = items.findIndex(
+            (item) => (item.registrationId || item.leadId) === id
+          );
+          if (index !== -1) items[index].status = newStatus;
+          newData.items = items;
           return newData;
         });
       } else {
@@ -97,67 +112,13 @@ export default function AdminDashboard() {
     }
   };
 
-  // Unify Leads and Registrations
-  const combinedMap = new Map();
+  // Backend now handles filtering, sorting, and pagination!
+  const paginatedData = data.items || [];
+  const totalPages = data.totalPages || 1;
+  const totalRecords = data.totalRecords || 0;
 
-  // 1. Add all leads
-  data.leads.forEach(lead => {
-    combinedMap.set(lead.phone, {
-      ...lead,
-      leadId: lead._id,
-      isRegistered: false,
-      docCount: 0,
-    });
-  });
-
-  // 2. Merge registrations
-  data.registrations.forEach(reg => {
-    const existing = combinedMap.get(reg.phone);
-    let docCount = 0;
-    if (reg.profilePicUrl) docCount++;
-    if (reg.aadharUrl) docCount++;
-    if (reg.panUrl) docCount++;
-
-    if (existing) {
-      combinedMap.set(reg.phone, {
-        ...existing,
-        ...reg, // overwrite lead data with richer registration data
-        leadId: existing.leadId,
-        registrationId: reg._id,
-        isRegistered: true,
-        docCount,
-        // If registration has remarks, prefer it, otherwise keep lead remarks
-        remarks: reg.remarks || existing.remarks,
-        status: reg.status || existing.status,
-        // Prefer registration creation date as it's the latest action
-        latestDate: reg.createdAt,
-      });
-    } else {
-      combinedMap.set(reg.phone, {
-        ...reg,
-        registrationId: reg._id,
-        isRegistered: true,
-        docCount,
-        latestDate: reg.createdAt,
-      });
-    }
-  });
-
-  const unifiedData = Array.from(combinedMap.values());
-
-  // Filter and sort (Latest first)
-  const filteredData = unifiedData
-    .filter(
-      (item) =>
-        item.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.phone?.includes(searchTerm)
-    )
-    .sort((a, b) => new Date(b.latestDate || b.createdAt) - new Date(a.latestDate || a.createdAt));
-
-  const totalPages = Math.max(1, Math.ceil(filteredData.length / itemsPerPage));
-  const paginatedData = filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-
-  if (loading) {
+  // We keep a simple loading spinner overlay if navigating pages
+  if (loading && paginatedData.length === 0) {
     return (
       <div className="min-h-screen bg-zinc-50 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
@@ -198,6 +159,20 @@ export default function AdminDashboard() {
                 </button>
               )}
             </div>
+
+            <Select value={statusFilter} onValueChange={setStatusFilter}>
+              <SelectTrigger className="w-[140px] h-[42px] bg-white border border-zinc-200 hover:bg-zinc-50 rounded-full font-medium text-sm text-zinc-700 shadow-sm focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all outline-none">
+                <SelectValue placeholder="All Status" />
+              </SelectTrigger>
+              <SelectContent className="rounded-xl shadow-xl border-zinc-100 p-1 z-[100] bg-white">
+                <SelectItem value="ALL" className="font-semibold text-zinc-700 cursor-pointer rounded-lg mb-1 focus:bg-zinc-100">All Status</SelectItem>
+                <SelectItem value="NEW" className="font-semibold text-zinc-700 cursor-pointer rounded-lg mb-1 focus:bg-blue-50 focus:text-blue-700">NEW</SelectItem>
+                <SelectItem value="CALLBACK" className="font-semibold text-zinc-700 cursor-pointer rounded-lg mb-1 focus:bg-purple-50 focus:text-purple-700">CALLBACK</SelectItem>
+                <SelectItem value="CALL_DONE" className="font-semibold text-zinc-700 cursor-pointer rounded-lg mb-1 focus:bg-cyan-50 focus:text-cyan-700">CALL DONE</SelectItem>
+                <SelectItem value="CONVERTED" className="font-semibold text-zinc-700 cursor-pointer rounded-lg mb-1 focus:bg-emerald-50 focus:text-emerald-700">CONVERTED</SelectItem>
+                <SelectItem value="NOT_INTERESTED" className="font-semibold text-zinc-700 cursor-pointer rounded-lg focus:bg-rose-50 focus:text-rose-700">NOT INTERESTED</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </header>
@@ -209,11 +184,18 @@ export default function AdminDashboard() {
             <p className="text-sm text-zinc-500 mt-1">Track customer progress from initial lead to payment success.</p>
           </div>
           <div className="bg-white px-4 py-2 rounded-xl shadow-sm border border-zinc-200 text-sm font-semibold text-zinc-700">
-            Total Records: <span className="text-blue-600">{filteredData.length}</span>
+            Total Records: <span className="text-blue-600">{totalRecords}</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 overflow-hidden flex flex-col">
+        <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 overflow-hidden flex flex-col relative">
+          {/* Overlay spinner when loading next pages */}
+          {loading && paginatedData.length > 0 && (
+            <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] z-20 flex items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-blue-600 drop-shadow-md" />
+            </div>
+          )}
+          
           <div className="overflow-x-auto min-h-[500px]">
             <table className="w-full text-left text-sm text-zinc-600">
               <thead className="bg-zinc-50/80 text-xs uppercase text-zinc-500 border-b border-zinc-200 font-bold tracking-wider">
@@ -257,7 +239,7 @@ export default function AdminDashboard() {
           {totalPages > 1 && (
             <div className="bg-zinc-50/50 border-t border-zinc-200 px-6 py-4 flex items-center justify-between">
               <span className="text-sm text-zinc-500 font-medium">
-                Showing <span className="text-zinc-900 font-semibold">{(currentPage - 1) * itemsPerPage + 1}</span> to <span className="text-zinc-900 font-semibold">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span> of <span className="text-zinc-900 font-semibold">{filteredData.length}</span> entries
+                Showing <span className="text-zinc-900 font-semibold">{(currentPage - 1) * itemsPerPage + 1}</span> to <span className="text-zinc-900 font-semibold">{Math.min(currentPage * itemsPerPage, totalRecords)}</span> of <span className="text-zinc-900 font-semibold">{totalRecords}</span> entries
               </span>
               <div className="flex gap-2">
                 <button
