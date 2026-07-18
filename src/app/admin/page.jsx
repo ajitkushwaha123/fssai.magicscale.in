@@ -373,9 +373,21 @@ function TableRow({ item, savingRemark, onSaveRemark, savingStatus, onSaveStatus
           {item.phone}
         </a>
         {item.email && (
-          <a href={`mailto:${item.email}`} className="text-zinc-500 hover:text-zinc-700 text-xs hover:underline mt-0.5 block truncate max-w-[180px]">
-            {item.email}
-          </a>
+          <div className="flex items-center gap-1 mt-0.5">
+            <a href={`mailto:${item.email}`} className="text-zinc-500 hover:text-zinc-700 text-xs hover:underline truncate max-w-[160px]">
+              {item.email}
+            </a>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(item.email);
+                const btn = document.getElementById(`copy-email-${item._id}`);
+                if (btn) { btn.textContent = '✓'; setTimeout(() => { btn.textContent = '⎘'; }, 1500); }
+              }}
+              id={`copy-email-${item._id}`}
+              title="Copy email"
+              className="text-[11px] text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100 rounded px-1 py-0.5 transition-colors flex-shrink-0"
+            >⎘</button>
+          </div>
         )}
         <button
           onClick={() => onWaTag(targetId, targetType, !item.waMessaged)}
