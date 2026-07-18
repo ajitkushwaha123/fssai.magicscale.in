@@ -9,27 +9,27 @@ import { GridPattern } from "@/components/ui/grid-pattern";
 const requiredDocuments = [
   {
     title: "Aadhaar Card",
-    description: "Required for identity verification and Aadhaar OTP-based e-signing of your GST application.",
+    description: "Required for identity verification.",
     image: "/assets/images/aadhaar-card.webp",
   },
   {
     title: "PAN Card",
-    description: "Mandatory for all GST registrations — linked to your GSTIN.",
+    description: "Mandatory for tax and financial compliance.",
     image: "/assets/images/pan-card.webp",
   },
   {
-    title: "Passport Size Photo",
-    description: "A clear selfie or recent passport-size photograph of the business owner.",
+    title: "3. Passport Size Photo",
+    description: "A clear selfie or recent passport-size photograph.",
     image: "/assets/images/passport-photo.webp",
   },
   {
-    title: "Business Address Proof",
-    description: "Electricity bill, rent agreement, or NOC from the property owner.",
+    title: "Premises Proof",
+    description: "Electricity bill or rent agreement of your business location.",
     image: "/assets/images/location-map.webp",
   },
   {
-    title: "Bank Account Proof",
-    description: "Cancelled cheque or bank statement showing your account and IFSC code.",
+    title: "Passport Photo",
+    description: "Recent photograph of the business owner or partners.",
     image: "/assets/images/chef-logo.webp",
   },
 ];
@@ -48,13 +48,13 @@ function DocumentCard({ title, description, image }) {
     >
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="absolute -top-20 -right-20 h-40 w-40 rounded-lg bg-emerald-500/10 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-lg bg-emerald-500/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-lg bg-teal-500/10 blur-3xl" />
       </div>
 
       <div
         className={clsx(
           "absolute top-6 right-6 z-20 inline-flex items-center rounded-lg border px-3 py-1 text-[11px] font-bold tracking-wider shadow-sm",
-          "bg-[#22c55e] text-white border-green-700 dark:border-emerald-500 shadow-emerald-500/20",
+          "bg-emerald-500 text-white border-emerald-600 dark:border-emerald-500 shadow-emerald-500/20",
         )}
       >
         Required
@@ -92,7 +92,7 @@ function DocumentCard({ title, description, image }) {
       <div className="relative z-10 p-7 pt-2 flex flex-col flex-grow">
         <div className="flex items-start justify-between gap-4 flex-grow">
           <div className="w-full">
-            <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white group-hover:text-[#22c55e] transition-colors">
+            <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white group-hover:text-emerald-500 transition-colors">
               {title}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -118,7 +118,7 @@ export default function RequiredDocumentsSection() {
         y={-1}
         strokeDasharray={"4 2"}
         className={cn(
-          "absolute inset-0 h-full w-full stroke-[#22c55e]/30 fill-[#22c55e]/30 dark:stroke-emerald-400/30 dark:fill-emerald-400/30 z-0",
+          "absolute inset-0 h-full w-full stroke-emerald-600/30 fill-emerald-600/30 dark:stroke-emerald-400/30 dark:fill-emerald-400/30 z-0",
           "[mask-image:linear-gradient(to_bottom,white,transparent_40%)]",
         )}
       />
@@ -136,12 +136,12 @@ export default function RequiredDocumentsSection() {
                 Documents Required For <br />{" "}
                 <Highlighter action="highlight" color="#22c55e">
                   <span className="text-white relative z-10 px-2 py-1">
-                    GST Registration
+                    FSSAI Registration
                   </span>
                 </Highlighter>
               </span>
             }
-            description="Keep these simple documents ready to get your GSTIN processed within 48 hours."
+            description="Keep these simple documents ready to get your FSSAI license processed within 24 hours."
           />
         </motion.div>
 

@@ -11,25 +11,25 @@ export default function HowItWorks() {
     {
       num: "01",
       title: "Apply & Pay",
-      description: "Submit your details & documents online in minutes.",
+      description: "Submit details & documents.",
       icon: FileUp,
     },
     {
       num: "02",
       title: "Expert Connect",
-      description: "Our GST expert calls you within 4hrs (10am–7pm).",
+      description: "Our executive calls within 4hrs (10am-7pm).",
       icon: PhoneCall,
     },
     {
       num: "03",
-      title: "Aadhaar OTP",
-      description: "Provide OTP for fast Govt. GST portal submission.",
+      title: "Verification",
+      description: "Provide OTP for fast Govt. portal submission.",
       icon: KeyRound,
     },
     {
       num: "04",
-      title: "GSTIN Issued",
-      description: "Your GST certificate is delivered digitally within 48 hours.",
+      title: "License Issued",
+      description: "Digital FSSAI certificate delivered to your email.",
       icon: MailCheck,
     }
   ];
@@ -49,7 +49,7 @@ export default function HowItWorks() {
                 </Highlighter>
               </>
             }
-            description="How we get your GSTIN issued smoothly in 4 easy steps."
+            description="How we get your FSSAI license issued smoothly in 4 easy steps."
           />
         </div>
       }
@@ -66,7 +66,7 @@ export default function HowItWorks() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "200px" }}
                   transition={{ delay: idx * 0.15, duration: 0.5 }}
-                  className="flex-1 relative bg-white rounded-lg border-2 border-zinc-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-5 text-center hover:border-emerald-500/30 hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
+                  className="flex-1 relative bg-white rounded-lg border-2 border-zinc-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-5 text-center hover:border-[#22c55e]/30 hover:shadow-[0_8px_30px_rgb(31,122,77,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
                 >
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#22c55e] text-white text-[11px] font-black tracking-widest px-4 py-1.5 rounded-full shadow-md border-4 border-white">
                     STEP {step.num}

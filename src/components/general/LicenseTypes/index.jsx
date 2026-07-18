@@ -3,33 +3,33 @@ import React from "react";
 import Title from "../Title";
 import { motion } from "framer-motion";
 import SectionWrapper from "../SectionWrapper";
-import { Store, Users, ShoppingBag } from "lucide-react";
+import { Store, Building2, Globe2 } from "lucide-react";
 import { Highlighter } from "@/components/ui/highlighter";
 
 export default function LicenseTypes() {
   const types = [
     {
-      level: "TYPE 1",
-      title: "Regular GST Registration",
-      turnover: "Above ₹40L (Goods) / ₹20L (Services)",
-      detail: "Mandatory for most businesses. Required for e-commerce sellers on Amazon, Flipkart, etc., and for inter-state supply of goods/services.",
+      level: "TIER 1",
+      title: "Basic Registration",
+      turnover: "Upto ₹12 Lakhs",
+      detail: "Ideal for small startups, home bakers, street vendors, and small-scale manufacturers.",
       icon: Store,
       popular: true,
     },
     {
-      level: "TYPE 2",
-      title: "Composition Scheme",
-      turnover: "Up to ₹1.5 Crore",
-      detail: "Ideal for small retailers, manufacturers, and restaurants. Pay a flat tax rate (1%-5%) instead of filing monthly returns.",
-      icon: Users,
+      level: "TIER 2",
+      title: "State License",
+      turnover: "₹12 Lakhs - ₹20 Crores",
+      detail: "Required for mid-sized businesses, hotels, restaurants, and standard manufacturers.",
+      icon: Building2,
       popular: false,
     },
     {
-      level: "TYPE 3",
-      title: "Voluntary Registration",
-      turnover: "Any Turnover",
-      detail: "For businesses below the threshold who want to claim input tax credit, sell B2B, or expand to e-commerce platforms.",
-      icon: ShoppingBag,
+      level: "TIER 3",
+      title: "Central License",
+      turnover: "Above ₹20 Crores",
+      detail: "Mandatory for large-scale manufacturers, importers, and multi-state operations.",
+      icon: Globe2,
       popular: false,
     },
   ];
@@ -41,7 +41,7 @@ export default function LicenseTypes() {
           <Title
             title={
               <>
-                Which GST Registration <br />{" "}
+                Which FSSAI License <br />{" "}
                 <Highlighter action="highlight" color={"#22c55e"}>
                   <span className="relative z-10 px-2 text-white">
                     Do You Need?
@@ -49,7 +49,7 @@ export default function LicenseTypes() {
                 </Highlighter>
               </>
             }
-            description="3 types of GST registration depending on your business size and sales model."
+            description="3 distinct license types based on your business scale and annual turnover."
           />
         </div>
       }
@@ -75,14 +75,14 @@ export default function LicenseTypes() {
                 whileHover={{ y: -6 }}
                 className={`group relative overflow-hidden rounded-3xl border p-6 transition-all duration-300 ${
                   type.popular
-                    ? "border-emerald-500 bg-gradient-to-br from-[#e8f2ec]/80 to-white shadow-xl"
+                    ? "border-[#22c55e] bg-gradient-to-br from-[#e8f2ec]/80 to-white shadow-xl"
                     : "border-neutral-200 bg-white hover:shadow-xl"
                 }`}
               >
                 {type.popular && (
                   <div className="absolute right-4 top-4">
                     <span className="rounded-full bg-[#22c55e] px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-white">
-                      Most Common
+                      Common
                     </span>
                   </div>
                 )}

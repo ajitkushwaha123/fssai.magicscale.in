@@ -1,6 +1,6 @@
 export const BANNER_INFO = {
-    TITLE: "⚡ Get Your GST Registration in 48 Hours",
-    DESCRIPTION: "Start selling on Amazon, Flipkart & grow your business with a verified GSTIN. 100% online.",
-    BUTTON_TEXT: "Get GST Now",
+    TITLE: "🔥 Fast & Secure FSSAI Registration",
+    DESCRIPTION: "Discover how to launch a profitable food business online and start selling on Swiggy & Zomato.",
+    BUTTON_TEXT: "Register Now for ₹9",
     BUTTON_LINK: "#register"
 }

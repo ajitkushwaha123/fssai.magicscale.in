@@ -3,33 +3,33 @@ import Home from "@/components/global/Home";
 
 export const metadata = {
   title: {
-    absolute: "GST Registration Online in 48 Hours | MagicScale",
+    absolute: "Apply for FSSAI License Online | MagicScale",
   },
-  description: "Get your GST Number (GSTIN) online in 48 hours at just ₹1,499. Expert support, hassle-free filing, and secure platform.",
+  description: "Get your Basic, State, or Central FSSAI License online starting at ₹999. Expert support, hassle-free processing, and secure platform.",
 };
 
 export default function Page() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "GST Registration Online",
+    name: "FSSAI License Online",
     url: "https://fssai.magicscale.in",
-    description: "Apply online for GST Registration at just ₹1,499. Get your GSTIN in 48 hours.",
+    description: "Apply online for FSSAI License starting at ₹999.",
   };
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "GST Registration",
+    name: "FSSAI License Registration",
     provider: {
       "@type": "Organization",
       name: "MagicScale",
     },
     areaServed: "India",
-    serviceType: "GST Registration Service",
+    serviceType: "Food License Registration",
     offers: {
       "@type": "Offer",
-      price: "1499",
+      price: "999",
       priceCurrency: "INR",
     },
   };
@@ -40,42 +40,42 @@ export default function Page() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is GST Registration?",
+        name: "What is an FSSAI License?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "GST (Goods and Services Tax) Registration is a mandatory process for businesses with annual turnover exceeding ₹40 Lakhs (goods) or ₹20 Lakhs (services). Upon successful registration, the government issues a unique 15-digit GSTIN (GST Identification Number).",
+          text: "An FSSAI License is a mandatory food safety registration issued by the Food Safety and Standards Authority of India (FSSAI). It is required for anyone involved in manufacturing, storing, distributing, transporting, or selling food products.",
         },
       },
       {
         "@type": "Question",
-        name: "Who needs GST Registration?",
+        name: "Who needs an FSSAI License?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "GST Registration is mandatory for: businesses with turnover above threshold limits, e-commerce sellers (Amazon, Flipkart), businesses making inter-state supplies, importers/exporters, and anyone wishing to claim input tax credit.",
+          text: "If you run any food-related business, you need an FSSAI License, including: Restaurants, Cloud Kitchens, Home Kitchens, Cafés, Bakeries, Grocery Stores, Sweet Shops, Food Manufacturers, Food Delivery Businesses, Caterers, Food Traders.",
         },
       },
       {
         "@type": "Question",
-        name: "How long does it take to get GST Registration?",
+        name: "How long does it take to get the license?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We process most GST Registration applications within 48 hours, provided all required documents are submitted correctly and Aadhaar OTP verification is completed.",
+          text: "We process most 1-Year FSSAI Registration applications within 24 hours, provided all required documents are submitted correctly.",
         },
       },
       {
         "@type": "Question",
-        name: "What documents are required for GST Registration?",
+        name: "What documents are required?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You'll need: Aadhaar Card, PAN Card, Passport Size Photograph, Business Name & Address, Bank Account Statement, Email ID, and Mobile Number.",
+          text: "You'll need: Aadhaar Card, PAN Card, Phone Number, Email ID, Shop/Business Name, Business Address, and a Selfie Photo.",
         },
       },
       {
         "@type": "Question",
-        name: "What is the charge for GST Registration?",
+        name: "What are your charges?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our GST Registration fee is ₹1,499 (all-inclusive). Pay just ₹300 advance and the rest after your GSTIN is issued. No hidden charges.",
+          text: "Our pricing is transparent: 1 Year: ₹999, 3 Years: ₹1,500, 5 Years: ₹2,500. No hidden charges.",
         },
       },
     ],
@@ -94,7 +94,7 @@ export default function Page() {
       {
         "@type": "ListItem",
         position: 2,
-        name: "GST Registration",
+        name: "FSSAI License Registration",
         item: "https://fssai.magicscale.in/#pricing",
       },
     ],
@@ -103,12 +103,12 @@ export default function Page() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: "MagicScale GST Registration",
+    name: "MagicScale FSSAI Licensing",
     image: "https://fssai.magicscale.in/og-image.png",
     "@id": "https://fssai.magicscale.in",
     url: "https://fssai.magicscale.in",
     telephone: "+918826073117",
-    priceRange: "₹1,499",
+    priceRange: "₹999 - ₹2500",
     address: {
       "@type": "PostalAddress",
       streetAddress: "New Delhi",

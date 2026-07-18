@@ -4,14 +4,14 @@ import { Headset, Rows, ShieldCheck, Trash2, Zap } from "lucide-react";
 export const metadata = {
   title: "Terms & Conditions | MagicScale",
   description:
-    "Review the Terms & Conditions governing your use of MagicScale's GST Registration and related services.",
+    "Review the Terms & Conditions governing your use of MagicScale's FSSAI registration and related services.",
   keywords: [
     "MagicScale",
     "Terms and Conditions",
-    "GST Registration Service",
+    "FSSAI Licensing Service",
     "Service Terms",
-    "GSTIN Processing",
-    "Business Compliance",
+    "consultation",
+    "Food Business Compliance",
   ],
   authors: [
     { name: "MagicScale", url: "https://magicscale.in" },
@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     title: "Terms & Conditions | MagicScale",
     description:
-      "Review the Terms & Conditions governing your use of MagicScale's GST Registration and related services.",
+      "Review the Terms & Conditions governing your use of MagicScale's FSSAI registration and related services.",
     url: "https://magicscale.in/terms-and-conditions",
     siteName: "MagicScale",
     type: "website",
@@ -29,17 +29,16 @@ export const metadata = {
 const cardData = [
   {
     title: "Client Responsibilities & KYC Accuracy",
-    description: "Clients must provide accurate and lawful business and personal documents.",
+    description: "Clients must provide accurate and lawful business documents.",
     icon: <Rows className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        By engaging MagicScale for GST Registration services, 
-        you agree that all documents (PAN, Aadhaar, bank proofs, business address proofs, etc.) 
+        By engaging MagicScale for FSSAI registration services, 
+        you agree that all documents (KYC, business proofs, rent agreements, etc.) 
         provided by you are 100% authentic and legally valid. <br /> <br />
         You are solely responsible for any legal repercussions, penalties, or 
         application rejections that arise from submitting forged, expired, or 
-        incorrect documents to the government authorities through our platform. 
-        You also agree to complete the necessary Aadhaar OTP verification promptly.
+        incorrect documents to the government authorities through our platform.
       </>
     ),
   },
@@ -51,25 +50,26 @@ const cardData = [
     content: (
       <>
         MagicScale operates as an independent private consultancy. 
-        We are not a government body, and we do not issue the GST Number (GSTIN) 
+        We are not a government body, and we do not issue the FSSAI license 
         directly. <br /> <br />
         Our professional fees cover the cost of consultation, document preparation, 
-        and application filing on the GST portal.
+        and application processing. Government fees (if applicable) are paid directly 
+        to the FSSAI department on your behalf as part of the service structure.
       </>
     ),
   },
   {
     title: "No Guarantee of Final Approval",
-    description: "Final licensing decisions rest with the GST authorities.",
+    description: "Final licensing decisions rest with the FSSAI authorities.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        While our experts ensure your GST application is submitted correctly, 
+        While our experts ensure your application is submitted correctly, 
         we do not and cannot guarantee the final approval, issuance, or processing 
-        timeline of your GSTIN. <br /> <br />
-        The respective government department may request additional documents (SCN), 
+        timeline of your FSSAI license. <br /> <br />
+        The respective government department may request additional documents, 
         conduct physical premises inspections, or reject applications based on their 
-        own criteria. MagicScale holds no liability for government rejections or delays.
+        own criteria. MagicScale holds no liability for government rejections.
       </>
     ),
   },
@@ -83,9 +83,9 @@ const cardData = [
         without refund if a client:{" "}
         <ul className="list-disc pl-5 mt-2">
           {" "}
-          <li>Submits deliberately falsified or forged KYC documents (PAN, Aadhaar, etc.).</li>{" "}
+          <li>Submits deliberately falsified or forged KYC documents.</li>{" "}
           <li>Engages in abusive or threatening behavior toward our staff.</li>{" "}
-          <li>Attempts to use our services for unlawful business activities or tax evasion.</li>{" "}
+          <li>Attempts to use our services for unlawful food business activities.</li>{" "}
           <li>Violates these Terms & Conditions.</li>{" "}
         </ul>{" "}
         <br />
@@ -102,7 +102,7 @@ const contactData = {
     <div>
       {" "}
       <p className="mb-4">
-        By accessing or purchasing any MagicScale GST Registration 
+        By accessing or purchasing any MagicScale FSSAI registration 
         service or consultation, you legally agree to these Terms & Conditions.{" "}
       </p>
       <p className="mb-2">
@@ -119,7 +119,7 @@ const contactData = {
         <br />
         New Delhi, India
         <br />
-        GST Registration & Compliance Services
+        FSSAI Registration & Compliance Services
       </p>
     </div>
   ),
@@ -135,7 +135,7 @@ const page = () => {
           For Clients{" "}
         </div>
       }
-      description="Please review the terms governing your use of MagicScale's GST Registration services and compliance consultations."
+      description="Please review the terms governing your use of MagicScale's FSSAI registration services and compliance consultations."
       ctaDescription="By engaging our services, you agree to these Terms & Conditions, ensuring a transparent and legally compliant service experience."
       ctaLink="mailto:support@magicscale.in"
       ctaButton={

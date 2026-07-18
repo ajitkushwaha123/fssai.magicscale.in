@@ -21,20 +21,20 @@ const formatCurrency = (amount) => {
 
 export async function sendPaymentSuccessEmails(lead, registration, paymentDetails) {
   try {
-    const whatsappLink = PLANS["gst-registration"]?.whatsappSupportLink || "https://wa.me/918826073117";
+    const whatsappLink = PLANS["fssai-food-license"]?.whatsappSupportLink || "https://wa.me/918826073117";
     const amountPaid = paymentDetails?.amount || registration?.advanceAmount || 0;
 
     // 1. Send Email to Customer
     const customerHtml = `
       <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
         <div style="background-color: #2563eb; padding: 32px 20px; text-align: center;">
-          <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">Payment Received! 🎉</h1>
+          <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">Payment Successful! 🎉</h1>
           <p style="color: #bfdbfe; margin: 8px 0 0 0; font-size: 15px;">Your registration is confirmed</p>
         </div>
         
         <div style="padding: 32px 40px;">
           <p style="color: #334155; font-size: 16px; margin-top: 0;">Dear <strong style="color: #0f172a;">${registration.name}</strong>,</p>
-          <p style="color: #475569; font-size: 15px; line-height: 1.6;">Thank you for choosing MagicScale! We have successfully received your payment of <strong style="color: #2563eb; font-size: 16px;">${formatCurrency(amountPaid)}</strong> for your GST Registration.</p>
+          <p style="color: #475569; font-size: 15px; line-height: 1.6;">Thank you for choosing MagicScale! We have successfully received your payment of <strong style="color: #059669; font-size: 16px;">${formatCurrency(amountPaid)}</strong> for your FSSAI License Registration.</p>
           
           <div style="background-color: #f8fafc; border-radius: 8px; padding: 20px; margin: 24px 0; border: 1px solid #e2e8f0;">
             <h3 style="margin: 0 0 12px 0; color: #0f172a; font-size: 15px;">Transaction Details</h3>
@@ -45,12 +45,12 @@ export async function sendPaymentSuccessEmails(lead, registration, paymentDetail
               </tr>
               <tr>
                 <td style="padding: 6px 0; color: #64748b; font-size: 14px;">Service:</td>
-                <td style="padding: 6px 0; color: #0f172a; font-size: 14px; text-align: right; font-weight: 600;">GST Registration</td>
+                <td style="padding: 6px 0; color: #0f172a; font-size: 14px; text-align: right; font-weight: 600;">FSSAI Registration</td>
               </tr>
             </table>
           </div>
 
-          <p style="color: #475569; font-size: 15px; line-height: 1.6; margin-bottom: 24px;">Our GST expert will review your submitted documents and initiate the GST registration process shortly. Your GSTIN will be issued within 48 hours after Aadhaar OTP verification.</p>
+          <p style="color: #475569; font-size: 15px; line-height: 1.6; margin-bottom: 24px;">Our team will review your submitted documents and initiate the application process shortly. We will keep you updated on the progress.</p>
           
           <div style="text-align: center; margin: 32px 0;">
             <a href="${whatsappLink}" target="_blank" style="display: inline-block; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);">
@@ -164,14 +164,14 @@ export async function sendPaymentSuccessEmails(lead, registration, paymentDetail
     const mailOptionsCustomer = {
       from: `"MagicScale" <${process.env.SMTP_USER}>`,
       to: registration.email,
-      subject: "Payment Received - GST Registration | MagicScale",
+      subject: "Payment Successful - MagicScale Registration",
       html: customerHtml,
     };
 
     const mailOptionsAdmin = {
       from: `"MagicScale Alerts" <${process.env.SMTP_USER}>`,
       to: adminEmails.join(", "),
-      subject: `🚨 New GST Registration Payment from ${registration.name}`,
+      subject: `🚨 New Payment from ${registration.name}`,
       html: adminHtml,
     };
 

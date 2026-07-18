@@ -9,28 +9,28 @@ import { Highlighter } from "@/components/ui/highlighter";
 export default function WhyChooseUs() {
   const comparisons = [
     {
-      pain: "Confusing GST Portal & Forms",
-      solution: "We File Everything For You",
+      pain: "Confusing Govt Process",
+      solution: "Fast & Hassle-Free Process",
     },
     {
-      pain: "Wrong HSN/SAC Code Selection",
-      solution: "Expert Code & Category Guidance",
+      pain: "Document Confusion & Rejections",
+      solution: "Error-Free Documentation Verification",
     },
     {
-      pain: "Application Rejections & Delays",
-      solution: "Error-Free Document Verification",
+      pain: "Long Waiting Times & Revisions",
+      solution: "Quick Turnaround & Filing",
     },
     {
-      pain: "No One to Guide You",
+      pain: "No Help or Guidance Available",
       solution: "Dedicated Expert Support",
     },
     {
-      pain: "Hidden CA / Agent Charges",
-      solution: "100% Transparent ₹1,499 Pricing",
+      pain: "Hidden Local Agent Charges",
+      solution: "100% Transparent Pricing",
     },
     {
-      pain: "Weeks of Waiting & Follow-Ups",
-      solution: "GSTIN in 48 Hours, Live Updates",
+      pain: "Multiple Unclear Portal Logins",
+      solution: "Live WhatsApp Updates",
     },
   ];
 
@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
                 </Highlighter>
               </>
             }
-            description="Stop wasting time on GST portal rejections. See how we make GST registration effortless."
+            description="Stop wasting time on application rejections. See how we make FSSAI licensing effortless."
           />
         </div>
       }

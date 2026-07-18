@@ -14,23 +14,23 @@ export const metadata = {
   metadataBase: new URL("https://fssai.magicscale.in"),
 
   title: {
-    default: "GST Registration Online | MagicScale",
+    default: "FSSAI License Online | MagicScale",
     template: "%s | MagicScale",
   },
 
   description:
-    "Get your GST Number (GSTIN) online in 48 hours at just ₹1,499. Expert support, hassle-free filing, and fast processing.",
+    "Apply for FSSAI License online starting at ₹999. Get Basic, State and Central Food License with expert support.",
 
   keywords: [
-    "GST Registration",
-    "GST Number Online",
-    "GSTIN",
-    "Apply GST Online",
-    "GST Registration India",
-    "GST Certificate",
-    "GST Filing",
-    "GST Registration Delhi",
-    "Online GST Registration",
+    "FSSAI License",
+    "Food License",
+    "FSSAI Registration",
+    "Food Registration",
+    "Apply FSSAI License",
+    "FSSAI Online",
+    "Basic FSSAI License",
+    "State FSSAI License",
+    "Central FSSAI License",
   ],
 
   alternates: {
@@ -42,8 +42,8 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "GST Registration Online in 48 Hours | MagicScale",
-    description: "Get your GST Number (GSTIN) online in 48 hours at just ₹1,499. Expert support, hassle-free filing.",
+    title: "FSSAI License Online | MagicScale",
+    description: "Apply for FSSAI License online starting at ₹999. Get Basic, State and Central Food License with expert support.",
     url: "https://fssai.magicscale.in",
     siteName: "MagicScale",
     images: [
@@ -51,7 +51,7 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MagicScale GST Registration",
+        alt: "MagicScale FSSAI License",
       },
     ],
     locale: "en_IN",
@@ -59,8 +59,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GST Registration Online in 48 Hours | MagicScale",
-    description: "Get your GST Number online in 48 hours at just ₹1,499.",
+    title: "FSSAI License Online | MagicScale",
+    description: "Apply for FSSAI License online starting at ₹999.",
     images: ["/og-image.png"],
   },
 };
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "MagicScale GST Registration",
+    name: "MagicScale FSSAI Licensing",
     url: "https://fssai.magicscale.in",
   };
 
