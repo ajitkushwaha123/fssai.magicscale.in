@@ -30,10 +30,10 @@ const validationSchemas = [
     phone: Yup.string()
       .matches(/^\d{10}$/, "Enter a valid 10-digit number")
       .required("WhatsApp number is required"),
-    email: Yup.string().email("Invalid email address").required("Email is required"),
   }),
 
   Yup.object({
+    email: Yup.string().email("Invalid email address").required("Email is required"),
     pincode: Yup.string().matches(/^\d{6}$/, "Valid 6-digit pincode required").required("Pincode is required"),
     state: Yup.string().trim().required("State is required"),
     city: Yup.string().trim().required("City is required"),
@@ -407,6 +407,11 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
                           <FieldError touched={touched.phone} error={errors.phone} />
                         </div>
 
+                      </div>
+                    )}
+
+                    {currentStep === 2 && (
+                      <div className="space-y-4">
                         <div className="space-y-2">
                           <label className="text-[13px] font-bold tracking-wide text-zinc-800 uppercase">Email Address</label>
                           <div className="relative group">
@@ -422,11 +427,7 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
                           </div>
                           <FieldError touched={touched.email} error={errors.email} />
                         </div>
-                      </div>
-                    )}
 
-                    {currentStep === 2 && (
-                      <div className="space-y-4">
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold tracking-wide text-zinc-800 uppercase">Pincode</label>
                           <div className="relative group">
