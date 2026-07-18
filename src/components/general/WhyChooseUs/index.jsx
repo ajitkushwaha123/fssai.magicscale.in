@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
             title={
               <>
                 The Old Way vs <br />{" "}
-                <Highlighter action="highlight" color={"#2563eb"}>
+                <Highlighter action="highlight" color={"#22c55e"}>
                   <span className="relative z-10 px-2 text-white">
                     MagicScale Way
                   </span>
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="w-px bg-zinc-200 mx-2 sm:mx-6 shrink-0" />
             <div className="flex-1">
-              <h3 className="text-[11px] sm:text-[13px] font-black text-blue-600 uppercase tracking-widest">With MagicScale</h3>
+              <h3 className="text-[11px] sm:text-[13px] font-black text-[#22c55e] uppercase tracking-widest">With MagicScale</h3>
             </div>
           </div>
 
@@ -84,8 +84,8 @@ export default function WhyChooseUs() {
                 <div className="w-px h-10 bg-zinc-100 mx-2 sm:mx-6 shrink-0" />
 
                 <div className="flex-1 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center justify-start sm:text-left sm:pl-4">
-                  <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 fill-blue-600/10" />
-                  <span className="text-[13px] sm:text-[15px] font-bold text-zinc-900 group-hover:text-blue-600 transition-colors">{item.solution}</span>
+                  <CheckCircle2 className="w-6 h-6 text-[#22c55e] shrink-0 fill-[#22c55e]/10" />
+                  <span className="text-[13px] sm:text-[15px] font-bold text-zinc-900 group-hover:text-[#22c55e] transition-colors">{item.solution}</span>
                 </div>
               </motion.div>
             ))}

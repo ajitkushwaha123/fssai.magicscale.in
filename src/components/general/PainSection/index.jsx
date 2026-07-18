@@ -47,14 +47,14 @@ function DocumentCard({ title, description, image }) {
       )}
     >
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute -top-20 -right-20 h-40 w-40 rounded-lg bg-blue-500/10 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-lg bg-indigo-500/10 blur-3xl" />
+        <div className="absolute -top-20 -right-20 h-40 w-40 rounded-lg bg-emerald-500/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-lg bg-emerald-500/10 blur-3xl" />
       </div>
 
       <div
         className={clsx(
           "absolute top-6 right-6 z-20 inline-flex items-center rounded-lg border px-3 py-1 text-[11px] font-bold tracking-wider shadow-sm",
-          "bg-blue-600 text-white border-blue-700 dark:border-blue-500 shadow-blue-500/20",
+          "bg-[#22c55e] text-white border-green-700 dark:border-emerald-500 shadow-emerald-500/20",
         )}
       >
         Required
@@ -92,7 +92,7 @@ function DocumentCard({ title, description, image }) {
       <div className="relative z-10 p-7 pt-2 flex flex-col flex-grow">
         <div className="flex items-start justify-between gap-4 flex-grow">
           <div className="w-full">
-            <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white group-hover:text-blue-600 transition-colors">
+            <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white group-hover:text-[#22c55e] transition-colors">
               {title}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -118,7 +118,7 @@ export default function RequiredDocumentsSection() {
         y={-1}
         strokeDasharray={"4 2"}
         className={cn(
-          "absolute inset-0 h-full w-full stroke-blue-600/30 fill-blue-600/30 dark:stroke-blue-400/30 dark:fill-blue-400/30 z-0",
+          "absolute inset-0 h-full w-full stroke-[#22c55e]/30 fill-[#22c55e]/30 dark:stroke-emerald-400/30 dark:fill-emerald-400/30 z-0",
           "[mask-image:linear-gradient(to_bottom,white,transparent_40%)]",
         )}
       />
@@ -134,7 +134,7 @@ export default function RequiredDocumentsSection() {
             title={
               <span className="text-3xl md:text-5xl">
                 Documents Required For <br />{" "}
-                <Highlighter action="highlight" color="#2563eb">
+                <Highlighter action="highlight" color="#22c55e">
                   <span className="text-white relative z-10 px-2 py-1">
                     GST Registration
                   </span>

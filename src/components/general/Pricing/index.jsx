@@ -26,7 +26,7 @@ export default function Pricing() {
           title={
             <>
               Transparent Pricing, <br />{" "}
-              <Highlighter action="highlight" color={"#2563eb"}>
+              <Highlighter action="highlight" color={"#22c55e"}>
                 <span className="relative z-10 px-2 text-white">
                   No Hidden Fees
                 </span>
@@ -39,8 +39,8 @@ export default function Pricing() {
     }>
       <div className="mx-auto relative z-10">
         <div className="mx-auto">
-          <div className="relative bg-white rounded-xl border border-blue-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_40px_rgb(37,99,235,0.12)]">
-            <div className="bg-blue-600 py-3 text-center">
+          <div className="relative bg-white rounded-xl border border-emerald-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_40px_rgb(37,99,235,0.12)]">
+            <div className="bg-[#22c55e] py-3 text-center">
               <p className="text-sm font-bold text-white uppercase tracking-widest flex items-center justify-center gap-2">
                 <Zap className="w-4 h-4 fill-white" /> Get GSTIN in 48 Hours ⚡
               </p>
@@ -53,11 +53,11 @@ export default function Pricing() {
 
                 <div className="flex flex-col gap-1 mb-8">
                   <div className="flex items-end gap-3">
-                    <span className="text-6xl font-black text-blue-600 tracking-tight">₹{plan?.advancePrice || 300}</span>
+                    <span className="text-6xl font-black text-[#22c55e] tracking-tight">₹{plan?.advancePrice || 300}</span>
                     <span className="text-xl font-bold text-zinc-900 pb-2">Advance</span>
                   </div>
                   <p className="text-sm font-semibold text-zinc-500">
-                    Pay the remaining ₹{(plan?.price || 1499) - (plan?.advancePrice || 300)} <span className="text-blue-600">after GSTIN is Issued</span>
+                    Pay the remaining ₹{(plan?.price || 1499) - (plan?.advancePrice || 300)} <span className="text-[#22c55e]">after GSTIN is Issued</span>
                   </p>
                   <div className="flex flex-col mt-2">
                     <span className="text-sm font-bold text-red-500 uppercase tracking-wider mb-0.5">Total: ₹{plan?.price || 1499} (Save ₹1,500)</span>
@@ -66,7 +66,7 @@ export default function Pricing() {
                 </div>
 
                 <div className="w-full mt-auto">
-                  <PayButton className="w-full h-14 text-lg rounded-xl shadow-lg transition-all bg-blue-600 hover:bg-blue-700" />
+                  <PayButton className="w-full h-14 text-lg rounded-xl shadow-lg transition-all bg-[#22c55e] hover:bg-green-700" />
                   <p className="text-center text-xs text-zinc-400 mt-4 font-semibold flex items-center justify-center gap-1.5">
                     <Shield className="w-3.5 h-3.5" /> 100% Safe & Secure Payment
                   </p>
@@ -78,8 +78,8 @@ export default function Pricing() {
                 <ul className="space-y-5">
                   {features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-                        <Check className="w-4 h-4 text-blue-600 stroke-[3]" />
+                      <div className="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+                        <Check className="w-4 h-4 text-[#22c55e] stroke-[3]" />
                       </div>
                       <span className="text-zinc-700 font-semibold text-[15px] leading-snug">{feature}</span>
                     </li>

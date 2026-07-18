@@ -42,7 +42,7 @@ export default function LicenseTypes() {
             title={
               <>
                 Which GST Registration <br />{" "}
-                <Highlighter action="highlight" color={"#2563eb"}>
+                <Highlighter action="highlight" color={"#22c55e"}>
                   <span className="relative z-10 px-2 text-white">
                     Do You Need?
                   </span>
@@ -75,25 +75,25 @@ export default function LicenseTypes() {
                 whileHover={{ y: -6 }}
                 className={`group relative overflow-hidden rounded-3xl border p-6 transition-all duration-300 ${
                   type.popular
-                    ? "border-blue-500 bg-gradient-to-br from-blue-50/80 to-white shadow-xl"
+                    ? "border-emerald-500 bg-gradient-to-br from-[#e8f2ec]/80 to-white shadow-xl"
                     : "border-neutral-200 bg-white hover:shadow-xl"
                 }`}
               >
                 {type.popular && (
                   <div className="absolute right-4 top-4">
-                    <span className="rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-white">
+                    <span className="rounded-full bg-[#22c55e] px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-white">
                       Most Common
                     </span>
                   </div>
                 )}
 
                 <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-600">
+                  <span className="rounded-full bg-[#e8f2ec] px-3 py-1 text-xs font-bold text-[#22c55e]">
                     {type.level}
                   </span>
 
-                  <div className="rounded-2xl bg-blue-50 p-3">
-                    <Icon className="h-5 w-5 text-blue-600" />
+                  <div className="rounded-2xl bg-[#e8f2ec] p-3">
+                    <Icon className="h-5 w-5 text-[#22c55e]" />
                   </div>
                 </div>
 
@@ -106,7 +106,7 @@ export default function LicenseTypes() {
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 ring-1 ring-inset ring-blue-600/20">
+                  <span className="inline-flex items-center rounded-full bg-[#e8f2ec] px-3 py-1 text-xs font-semibold text-[#22c55e] ring-1 ring-inset ring-[#22c55e]/20">
                     Turnover: {type.turnover}
                   </span>
                 </div>

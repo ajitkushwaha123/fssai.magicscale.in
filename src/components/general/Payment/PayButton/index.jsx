@@ -18,7 +18,7 @@ export default function PayButton() {
           }
           setOpen(true);
         }}
-        className="group flex-1 w-full rounded-md bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:bg-blue-700 active:scale-[0.98]"
+        className="group flex-1 w-full rounded-md bg-[#22c55e] px-5 py-3 font-semibold text-white shadow-lg shadow-[#22c55e]/20 transition-all duration-300 hover:bg-green-700 active:scale-[0.98]"
       >
         <div className="flex items-center justify-center gap-2">
           <span>Get GST Now</span>
