@@ -14,14 +14,14 @@ export default function PayButton() {
         onClick={() => {
           posthog.capture("application_form_opened");
           if (typeof window !== "undefined" && window.fbq) {
-            window.fbq("track", "InitiateCheckout", { content_name: "FSSAI Application Form Opened" });
+            window.fbq("track", "InitiateCheckout", { content_name: "GST Registration Form Opened" });
           }
           setOpen(true);
         }}
-        className="group flex-1 w-full rounded-md bg-[#22c55e] px-5 py-3 font-semibold text-white shadow-lg shadow-green-600/20 transition-all duration-300 hover:bg-green-700 active:scale-[0.98]"
+        className="group flex-1 w-full rounded-md bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:bg-blue-700 active:scale-[0.98]"
       >
         <div className="flex items-center justify-center gap-2">
-          <span>Apply Now</span>
+          <span>Get GST Now</span>
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </button>

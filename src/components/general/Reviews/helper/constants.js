@@ -1,23 +1,23 @@
 export const TESTIMONIALS = [
     {
-        name: "Rohit Sharma",
-        title: "Owner, Sharma Sweets",
+        name: "Rahul Gupta",
+        title: "Amazon Seller, Delhi",
         quote:
-            "FSSAI license milna itna aasan hoga maine socha hi nahi tha. Bas documents diye aur inhone sab khud handle kar liya. Highly recommended!",
+            "Amazon pe sell karne ke liye GST chahiye tha urgently. MagicScale ne 36 ghante mein mera GSTIN de diya. Process bilkul smooth tha!",
         img: "/assets/reviews/client_rohit.png",
     },
     {
-        name: "Anjali Mehra",
-        title: "Founder, Cozy Spot Cafe",
+        name: "Priya Sharma",
+        title: "Freelance Consultant, Mumbai",
         quote:
-            "Cloud kitchen start karne ke liye license chahiye tha, inki team ne bahut properly guide kiya aur time pe certificate deliver kiya.",
+            "As a freelancer, I was confused about GST. The MagicScale team explained everything clearly and got my GSTIN registered in less than 2 days. Highly recommended!",
         img: "/assets/reviews/client_anjali.png",
     },
     {
-        name: "Karan Desai",
-        title: "Owner, Spicy Kulcha Factory",
+        name: "Vikram Singh",
+        title: "Retailer, Jaipur",
         quote:
-            "Pehle govt portal pe try kiya par reject ho gaya. Inke platform se 2 din mein FSSAI registration complete ho gaya. Excellent service!",
+            "GST portal pe khud try kiya tha, bahut confusion hui. Inhe diya toh bina kisi jhanjhat ke ek din mein ARN mil gaya aur 2 din mein GSTIN. Excellent service!",
         img: "/assets/reviews/client_karan.png",
     },
 ]

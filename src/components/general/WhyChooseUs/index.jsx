@@ -9,28 +9,28 @@ import { Highlighter } from "@/components/ui/highlighter";
 export default function WhyChooseUs() {
   const comparisons = [
     {
-      pain: "Confusing Govt Process",
-      solution: "Fast & Hassle-Free Process",
+      pain: "Confusing GST Portal & Forms",
+      solution: "We File Everything For You",
     },
     {
-      pain: "Document Confusion & Rejections",
-      solution: "Error-Free Documentation Verification",
+      pain: "Wrong HSN/SAC Code Selection",
+      solution: "Expert Code & Category Guidance",
     },
     {
-      pain: "Long Waiting Times & Revisions",
-      solution: "Quick Turnaround & Filing",
+      pain: "Application Rejections & Delays",
+      solution: "Error-Free Document Verification",
     },
     {
-      pain: "No Help or Guidance Available",
+      pain: "No One to Guide You",
       solution: "Dedicated Expert Support",
     },
     {
-      pain: "Hidden Local Agent Charges",
-      solution: "100% Transparent Pricing",
+      pain: "Hidden CA / Agent Charges",
+      solution: "100% Transparent ₹1,499 Pricing",
     },
     {
-      pain: "Multiple Unclear Portal Logins",
-      solution: "Live WhatsApp Updates",
+      pain: "Weeks of Waiting & Follow-Ups",
+      solution: "GSTIN in 48 Hours, Live Updates",
     },
   ];
 
@@ -42,14 +42,14 @@ export default function WhyChooseUs() {
             title={
               <>
                 The Old Way vs <br />{" "}
-                <Highlighter action="highlight" color={"#22c55e"}>
+                <Highlighter action="highlight" color={"#2563eb"}>
                   <span className="relative z-10 px-2 text-white">
                     MagicScale Way
                   </span>
                 </Highlighter>
               </>
             }
-            description="Stop wasting time on application rejections. See how we make FSSAI licensing effortless."
+            description="Stop wasting time on GST portal rejections. See how we make GST registration effortless."
           />
         </div>
       }
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="w-px bg-zinc-200 mx-2 sm:mx-6 shrink-0" />
             <div className="flex-1">
-              <h3 className="text-[11px] sm:text-[13px] font-black text-[#22c55e] uppercase tracking-widest">With MagicScale</h3>
+              <h3 className="text-[11px] sm:text-[13px] font-black text-blue-600 uppercase tracking-widest">With MagicScale</h3>
             </div>
           </div>
 
@@ -84,8 +84,8 @@ export default function WhyChooseUs() {
                 <div className="w-px h-10 bg-zinc-100 mx-2 sm:mx-6 shrink-0" />
 
                 <div className="flex-1 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center justify-start sm:text-left sm:pl-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#22c55e] shrink-0 fill-[#22c55e]/10" />
-                  <span className="text-[13px] sm:text-[15px] font-bold text-zinc-900 group-hover:text-[#22c55e] transition-colors">{item.solution}</span>
+                  <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 fill-blue-600/10" />
+                  <span className="text-[13px] sm:text-[15px] font-bold text-zinc-900 group-hover:text-blue-600 transition-colors">{item.solution}</span>
                 </div>
               </motion.div>
             ))}

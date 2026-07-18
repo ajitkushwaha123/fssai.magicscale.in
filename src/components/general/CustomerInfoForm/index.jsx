@@ -178,7 +178,7 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
         posthog.capture("lead_captured", { plan_id: plan?._id });
         if (typeof window !== "undefined" && window.fbq) {
           window.fbq("track", "Lead", { 
-            content_name: "FSSAI Application Lead",
+            content_name: "GST Registration Lead",
             content_category: values.businessType,
             currency: "INR",
             value: parseFloat(plan?.price || 0)
@@ -266,7 +266,7 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
             <DialogDescription className="text-left text-zinc-500 text-sm mt-1.5 font-medium leading-relaxed">
               {currentStep === 0 && "Select your business type."}
               {currentStep === 1 && "Enter your name and WhatsApp number."}
-              {currentStep === 2 && "Where should we send your official FSSAI certificate?"}
+              {currentStep === 2 && "Where should we send your official GST certificate?"}
               {currentStep === 3 && "Upload clear photos of your documents to verify identity."}
             </DialogDescription>
           </DialogHeader>
@@ -290,7 +290,7 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
                 window.fbq("track", "InitiateCheckout", { 
                   value: parseFloat(advanceAmount), 
                   currency: "INR",
-                  content_name: "FSSAI License Registration Advance",
+                  content_name: "GST Registration Advance",
                   content_type: "product",
                   content_ids: [plan._id || "fssai_plan"],
                   num_items: 1
@@ -506,7 +506,7 @@ export default function ReserveSeatDialog({ open, onOpenChange }) {
                       <div className="space-y-5">
                         <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 flex gap-3 mb-2">
                           <Lock className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                          <p className="text-sm text-emerald-800 font-medium">Your documents are encrypted and only used for your official FSSAI registration.</p>
+                          <p className="text-sm text-emerald-800 font-medium">Your documents are encrypted and only used for your official GST registration.</p>
                         </div>
 
                         {[
